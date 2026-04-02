@@ -126,47 +126,106 @@
 // callGreet(greet); // Output: Hello, World!
 
 
+// // //Arrow Function
+
+// Def - Arrow functions are a concise syntax for writing function expressions in JavaScript. They are often used for shorter functions and do not have their own 'this' context, making them useful in certain situations like callbacks and array methods.
+
+// this keyword in arrow function
+
+// const obj = {
+//     name: "John",
+//     regularFunction: function() {
+//         console.log("Regular Function:", this.name); // 'this' refers to the obj, Output: John
+//     }, 
+//     arrowFunction: () => {
+//         console.log("Arrow Function:", this.name); // 'this' does not refer to the obj, Output: undefined
+//     }
+// };
+// obj.regularFunction(); // Regular Function: John
+// obj.arrowFunction(); // Arrow Function: undefined        
+
+
+// let greet = () => console.log("Good Morning!");
+// greet();
+
+// add = (a, b) => a + b;
+// console.log(add(5, 10)); // 15
+
+// //arrow function with multiple parameters
+// const multiply = (a, b, c) => {
+//     return a * b * c;
+// };
+// console.log(multiply(2, 3, 4)); // 24
+
+// let div = (a, b) => (a / b);
+// console.log(div(10, 2)); // 5
+
+// setTimeout(() => {    
+//     console.log("We are inside setTimeout!");
+// }, 2000); // This is an arrow function used as a callback in setTimeout!
+
 //Call Back Function
 
 // Def - A callback function is a function that is passed as an argument to another function and is executed after some operation has been completed. It allows you to handle asynchronous operations and ensures that certain code runs only after a specific task is finished.
 
-function x(){
-    console.log("Function x called");
-}
-x(function y(){
-    console.log("This is a callback function y called inside function x");
-});
+// function x(){
+//     console.log("Function x called");
+// }
+// x(function y(){
+//     console.log("This is a callback function y called inside function x");
+// });
 
 
-setTimeout(() => {
-    console.log("This is a callback function executed after 2 seconds");
-}, 2000); // This is a callback function executed after 2 seconds
-
-// setTimeout with function
-function delayedFunction() {
-    console.log("This is a delayed function executed after 3 seconds");
-}   
-setTimeout(delayedFunction, 3000); // This is a delayed function executed after 3 seconds
-
+// function sum(a, b, callback){
+//     let result = a + b;
+//     callback(result); // Call the callback function with the result
+// }
+// function displayResult(result){ // This is the callback function that will be called after the sum is calculated
+//     console.log("The result is: " + result);
+// }
+// sum(10,39, displayResult); 
 
 
+// setTimeout(printName,2000) // This will call the printName function after 2 seconds
+// function printName(){
+//     console.log("Shantanu");
+// }
+
+// setTimeout(() => {
+//     console.log("This is a callback function executed after 2 seconds");
+// }, 2000); // This is a callback function executed after 2 seconds
+
+// // setTimeout with function
+// function delayedFunction() {
+//     console.log("This is a delayed function executed after 3 seconds");
+// }   
+// setTimeout(delayedFunction, 3000); // This is a delayed function executed after 3 seconds
+
+// Callback Hell aka Pyramid of Doom
+
+// Def - Callback hell refers to a situation where multiple nested callback functions are used, making the code difficult to read and maintain. It often occurs when dealing with asynchronous operations that depend on the results of previous operations, leading to deeply nested and complex code structures. 
+
+//Example: menu ->  groceries -> cook -> tables -> serve -> eat
+
+// menu(function(){
+//     groceries(function(){
+//         cook(function(){
+//             tables(function(){
+//                 serve(function(){
+//                     eat(function(){
+//                         console.log("All done!");
+//                     })
+//                 })
+//             })
+//         })
+//     })
+// })
 
 
-// // //Arrow Function
+// Solution to Callback Hell - Promises and Async/Await
 
 
-// // const add = (a, b) => a + b;
-// // console.log(add(5, 10)); // 15
-// // //arrow function with multiple parameters
-// // const multiply = (a, b, c) => {
-// //     return a * b * c;
-// // };
-// // console.log(multiply(2, 3, 4)); // 24
-
-
-
-
-// //maths
+// //Maths
 
 // // console.log(Math.PI); // 3.141592653589793
 // // console.log(Math.sqrt(16)); // 4    

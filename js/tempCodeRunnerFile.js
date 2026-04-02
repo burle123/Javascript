@@ -1,4 +1,7 @@
-function sum(a,b) { // 'a,b' is a parameter
-    console.log(a+b); 
-}
-sum(10,20); // '10' and '20' are arguments, Output: 30
+const add = (a, b) => a + b;
+console.log(add(5, 10)); // 15
+//arrow function with multiple parameters
+const multiply = (a, b, c) => {
+    return a * b * c;
+};
+console.log(multiply(2, 3, 4)); // 24
