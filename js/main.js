@@ -126,7 +126,30 @@
 // callGreet(greet); // Output: Hello, World!
 
 
-// // //Arrow Function
+// Closures
+
+// Def - A function that has access to its own scope, the outer function's scope, and the global scope is called a closure. Closures allow functions to retain access to variables from their containing scopes even after those scopes have finished executing. 
+
+function x(){
+    a=10;
+    function y(){
+        console.log(a); // 10 (y has access to a because of closure)
+    }
+    // return y;
+    y();
+}
+x(); // Output: 10
+
+// Use of closures in JavaScript:
+// 1. Data Privacy
+// 2. Function Factories
+// 3. Maintaining State in Asynchronous Code
+// 4. Implementing Callbacks and Event Handlers
+// 5. Module Pattern
+
+
+
+//Arrow Function
 
 // Def - Arrow functions are a concise syntax for writing function expressions in JavaScript. They are often used for shorter functions and do not have their own 'this' context, making them useful in certain situations like callbacks and array methods.
 
@@ -224,6 +247,68 @@
 
 // Solution to Callback Hell - Promises and Async/Await
 
+// Promises
+
+// Def - A Promises is an object which represents the eventual completion (or failure) of an asynchronous operation. promises defines a callback to handle the success or failure of an asynchronous operation.It allows you to write cleaner and more manageable code by avoiding deeply nested callbacks and providing a more structured way to handle asynchronous operations. 
+
+
+// const myPromise = new Promise((resolve, reject) => {
+//     const success = true; // Change this to false to see the rejection case
+//     if (success) {
+//         resolve("Promise resolved successfully!");
+//     } else {
+//         reject("Promise rejected.");
+//     }
+// });
+
+// myPromise
+//     .then((message) => {
+//         console.log(message); // Promise resolved successfully!
+//     })
+//     .catch((error) => {
+//         console.error(error); // Promise rejected.
+//     });
+
+// Solution to Callback Hell using Promises using one example - ecommerse website
+
+// Callback Hell
+
+// const cart = ["item1", "item2", "item3"];
+
+// createOrder(cart, function(orderId) {
+//     proceedToPayment(orderId, function(paymentStatus) {
+//         showOrderSummary(paymentStatus , function(){
+//             updateWalletBalance();
+//         });
+//     });
+// }); 
+
+// Solution using Promises(chain) using named functions
+
+// createOrder(cart)
+//     .then(function (orderId){
+//         return proceedToPayment(orderId);
+//     })
+//     .then(function(paymentStatus){
+//         return showOrderSummary(paymentStatus);
+//     })
+//     .then(function(){
+//         return updateWalletBalance();
+//     });       
+
+
+
+// Solution using Promises using arrow functions
+
+// createOrder(cart)
+//     .then(orderId => proceedToPayment(orderId))
+//     .then(paymentStatus => showOrderSummary(paymentStatus))
+//     .then(() => updateWalletBalance());
+
+
+// fetch() - A built-in JavaScript function that allows you to make network requests and handle responses. It returns a promise that resolves to the response of the request, making it easier to work with asynchronous data fetching and manipulation.
+
+
 
 // //Maths
 
@@ -252,7 +337,7 @@
 
 
 
-// // //array methods
+// // //Array methods
 
 
 // // const numbers = [1, 2, 3, 4, 5];
@@ -386,26 +471,6 @@
 // }   
 // asynchronousFunction(); // This is an asynchronous function executed after 2 seconds.
 
-// // // Promises
-
-
-// // const myPromise = new Promise((resolve, reject) => {
-// //     const success = false; // Change this to false to see the rejection case
-// //     if (success) {
-// //         resolve("Promise resolved successfully!");
-// //     } else {
-// //         reject("Promise rejected.");
-// //     }
-// // });
-
-
-// // myPromise
-// //     .then((message) => {
-// //         console.log(message); // Promise resolved successfully!
-// //     })
-// //     .catch((error) => {
-// //         console.error(error); // Promise rejected.
-// //     });
 
 // // Async/Await
 // const asyncFunction = async () => {
@@ -433,11 +498,3 @@
 //     }       
 // }
 // fetchData(); // This will fetch data from the API and log it to the console 
-
-
-
-
-
-
-
-
