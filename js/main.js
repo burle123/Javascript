@@ -130,15 +130,15 @@
 
 // Def - A function that has access to its own scope, the outer function's scope, and the global scope is called a closure. Closures allow functions to retain access to variables from their containing scopes even after those scopes have finished executing. 
 
-function x(){
-    a=10;
-    function y(){
-        console.log(a); // 10 (y has access to a because of closure)
-    }
-    // return y;
-    y();
-}
-x(); // Output: 10
+// function x(){
+//     a=10;
+//     function y(){
+//         console.log(a); // 10 (y has access to a because of closure)
+//     }
+//     // return y;
+//     y();
+// }
+// x(); // Output: 10
 
 // Use of closures in JavaScript:
 // 1. Data Privacy
@@ -334,6 +334,45 @@ x(); // Output: 10
 // // console.log(bal.toFixed(2)); // 1000.00
 // // console.log(bal.toLocaleString()); 
 // // console.log(bal.toExponential(2)); // 1.00e
+
+
+// Currying function
+
+// Def - Currying is a functional programming technique where a function with multiple arguments is transformed into a sequence of functions that each take a single argument. It allows you to create new functions by partially applying arguments to an existing function, making it easier to reuse and compose functions in a more flexible way.
+
+// function add(a){
+//     return function(b){
+//         return a + b;
+//     }
+// }
+// const add5 = add(5); // This creates a new function that adds 5 to its argument
+// console.log(add5(10)); // Output: 15 (5 + 10)
+// console.log(add(3)(4)); // Output: 7 (3 + 4)
+
+// Real-time use of currying function
+
+// const sendAutoEmail = function(to) {
+//     return function(subject) {
+//         return function(body) {
+//             console.log(`Sending email to: ${to}`);
+//             console.log(`Subject: ${subject}`);
+//             console.log(`Body: ${body}`);
+//         }
+//     }
+// };
+// sendAutoEmail("auto@example.com")("Auto Email")("This is an auto-generated email!");
+
+
+// const sendEmail = (to) => (subject) => (body) => {
+//     console.log(`Sending email to: ${to}`);
+//     console.log(`Subject: ${subject}`);
+//     console.log(`Body: ${body}`);
+// }
+// const sendToJohn = sendEmail("john@example.com");
+// sendToJohn("Hello John")("This is a curried function example!");
+
+
+
 
 
 
